@@ -62,4 +62,28 @@ public class budget {
             System.out.println("Net balance is positive, good work!");
         }
     }
+    //method to check for invalid inputs
+    public static double getValidAmount (Scanner scanner, String prompt) {
+        double amount = 0;
+        boolean validInput = false;
+
+        while (!validInput) {
+            try {
+                System.out.print(prompt);
+                amount = scanner.nextDouble();
+
+                //check for negative
+                if (amount < 0) {
+                    System.out.println("Amount must be non-negative. Please try again.");
+                } else {
+                    validInput = true;
+                }
+            } catch (Exception ex) {
+                //if invalid input type
+                System.out.println("Invalid input. Please enter a valid number.");
+            }
+        }
+        return amount;
+    }
+                
 }
